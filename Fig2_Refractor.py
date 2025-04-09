@@ -6,7 +6,7 @@
 # Started Refractor
 # To run call in main.py
 #
-# Ploting Data list done
+# Begun K-WTA simulation done
 # Line 46 Refractor possible
 #
 #
@@ -76,10 +76,24 @@ def fig2_refractor (sa) :
     # set to show the grid
     ax1.grid(True)
    
+    # K-WTA Simulation
+
+    # initial x
+    x = [0.5]
+    alfa = [0.6]
+
+    # s arrays initialized with zero
+    s1 = np.zeros((j,n))
+    s2 = np.zeros((j,n))
+    s3 = np.zeros((j,n))
+    s4 = np.zeros((j,n))
+    s5 = np.zeros((j,n))
+    s6 = np.zeros((j,n))
+    s7 = np.zeros((j,n))
+    s8 = np.zeros((j,n))
+    s9 = np.zeros((j,n))
     
-    
-    
-    
+    # loop over the range to run the simulation
     
     
     return
