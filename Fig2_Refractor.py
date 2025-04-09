@@ -52,7 +52,7 @@ def fig2_refractor (sa) :
     for x in range(j):
         ki.append(x)
         for l in range(n):
-            aa[l].append(sa[1])
+            aa[l].append(sa[l])
 
     
     return
