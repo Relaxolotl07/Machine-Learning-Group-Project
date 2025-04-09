@@ -6,7 +6,7 @@
 # Started Refractor
 # To run call in main.py
 #
-# Begun K-WTA simulation done
+# Begun K-WTA simulation 
 # Line 46 Refractor possible
 #
 #
@@ -94,6 +94,65 @@ def fig2_refractor (sa) :
     s9 = np.zeros((j,n))
     
     # loop over the range to run the simulation
-    
-    
-    return
+    for k in range(n):
+        # begin time assessment
+        start_time = time.time()
+
+        # initialize d array
+        d=np.zeros(j)
+
+        # Actual K-WTA Simulation
+        for (i) in range(j):
+            
+            # set s values
+            # binary decision (Pass - Fail)
+            s = []
+            # We set the values of Pass or Fail 
+            # based on normalized list <a> 
+            # compared to given/calculated x
+            for l in range(n):
+                # Pass
+                if (a(l) - x(i)) > 0:
+                    s(l) = 1
+                # Fail
+                else:
+                    s(l) = 0
+            
+            # Case
+            # Dot product
+            # Could use a refractor into switch for efficiency
+            # Places the dot product of <a> and <s> into d array 
+            # k is the  of k-WTA
+            # 
+            if k==0:
+                d[i] = np.dot(a,s)
+                s1[i, :] = s
+            elif k==1:
+                d[i] = np.dot(a, s - s1[i,:])
+                s2[i, :] = s
+            elif k==2:
+                d[i] = np.dot(a, s - s2[i,:])
+                s3[i, :] = s
+            elif k==3:
+                d[i] = np.dot(a, s - s3[i,:])
+                s4[i, :] = s
+            elif k==4:
+                d[i] = np.dot(a, s - s4[i,:])
+                s5[i, :] = s
+            elif k==5:
+                d[i] = np.dot(a, s - s5[i,:])
+                s6[i, :] = s
+            elif k==6:
+                d[i] = np.dot(a, s - s6[i,:])
+                s7[i, :] = s
+            elif k==7:
+                d[i] = np.dot(a, s - s7[i,:])
+                s8[i, :] = s
+            elif k==8:
+                d[i] = np.dot(a, s - s8[i,:])
+                s9[i, :] = s
+
+            # Add all s values and put it into ss
+            ss = np.sum(s)
+            e = ss - (k+1)
+    return # fig2_refractor end
