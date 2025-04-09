@@ -6,8 +6,8 @@
 # Started Refractor
 # To run call in main.py
 #
-# Random data initialization done
-#
+# Ploting Data list done
+# Line 46 Refractor possible
 #
 #
 import numpy as np
@@ -31,6 +31,28 @@ def fig2_refractor (sa) :
     # tmax: max time to execute the inner simulation loop for k
     dmin, dmax, tmax = 0, 0, 0
 
-    # 
+    # this part in fig2 matlab is replaced by the parameter
 
+    # Normalize sa into array a
+    a = sa/10 + 0.5
+
+    print (a)
+
+    #initialize ki and aa
+    ki = []
+    # aa is for plotting
+    aa = []
+
+    # I think there are numpy functions for this if someone wants to refractor
+    # creates nested array
+    for l in range(n):
+        aa.append([])
+
+    # plotting 
+    for x in range(j):
+        ki.append(x)
+        for l in range(n):
+            aa[l].append(sa[1])
+
+    
     return
