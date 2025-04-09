@@ -7,7 +7,13 @@
 # To run call in main.py
 #
 # Begun K-WTA simulation 
-# Line 46 Refractor possible
+# 
+#
+# Actual k-WTA simulation has a lot of comments to explain the 
+# function of the case logic.
+#
+#
+#
 #
 #
 import numpy as np
@@ -79,7 +85,9 @@ def fig2_refractor (sa) :
     # K-WTA Simulation
 
     # initial x
+    # weight variable for the k-WTA
     x = [0.5]
+    # this is the stepsize
     alfa = [0.6]
 
     # s arrays initialized with zero
@@ -112,11 +120,11 @@ def fig2_refractor (sa) :
             # compared to given/calculated x
             for l in range(n):
                 # Pass
-                if (a(l) - x(i)) > 0:
-                    s(l) = 1
+                if (a[l] - x[i]) > 0:
+                    s.append(1)
                 # Fail
                 else:
-                    s(l) = 0
+                    s.append(0)
             
             # Case
             # Dot product
@@ -153,6 +161,57 @@ def fig2_refractor (sa) :
                 s9[i, :] = s
 
             # Add all s values and put it into ss
+            # determines which units are winners in the current iteration
             ss = np.sum(s)
+            
+            # determines how many units are winners in this iteration
             e = ss - (k+1)
+
+            # Determines whether there were too little or many winners
+            # miu sets the direction of x (the initial variable)
+            # based on if there were too many winners 
+            # or too many losers otherwise correct amount
+            # of winners
+            # Case >0   : Too many winners
+            # Case <0   : Too many losers
+            # else      : Correct amount of winners
+            if   e > 0:
+                miu = 1
+            elif e < 0:
+                miu = -1
+            else      :
+                miu = 0
+            
+            # Updates the threshold x based on direction and alpha
+            # array from the beginning of the program
+            x.append(x[i] + miu * alfa[i])
+
+            # reduces alpha array geometrically
+            alfa.append(alfa[i] * alfa[0])
+        # End of this iterations k-WTA simulation
+        elapsed = time.time() - start_time
+        tmax = max(tmax, elapsed * 6/10)
+
+        # this iterations d value
+        d = (d-0.5)*10
+
+        # Update dmin and dmax because d is now calculated
+        dmin = min(dmin, np.min(d))
+        dmax = max(dmax, np.max(d))
+
+        # Refractored subplots into .plot function to make it more reasonable
+        ax2.plot(ki, d, plot_styles[k], label=f'd_{k+1}')
+    # Outside outer loop
+    # Setup subplot 2
+    # ax2.set_xlim(1, j)
+    ax2.set_ylim(dmin, dmax)
+    ax2.set_xlabel('Number of iteration l')
+    ax2.set_ylabel('Trajectories d_1 to d_9')
+    ax2.legend()
+    ax2.grid(True)
+
+    plt.tight_layout()
+    plt.show()
+
+    print(f"tmax: {tmax}, dmin: {dmin}, dmax: {dmax}")    
     return # fig2_refractor end
