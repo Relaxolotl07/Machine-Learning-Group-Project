@@ -10,14 +10,15 @@
 #
 #
 #
+import numpy as np
+import matplotlib.pyplot as plt
+import time
 
+# takes an array and simulates a k-WTA networks with different ks
+# if you want a random array test then input it in the parameter when calling
+# sa is the array to test, is normalized within function
+def fig2_refractor (sa) :
 
-
-
-def fig2_refractor () :
-    import numpy as np
-    import matplotlib.pyplot as plt
-    import time
 
     # Paramter Initialization
     # Trajectories
@@ -30,10 +31,6 @@ def fig2_refractor () :
     # tmax: max time to execute the inner simulation loop for k
     dmin, dmax, tmax = 0, 0, 0
 
-    # Random Data Generation
-    # Generate array of random numbers
-    a = np.random.rand(n)
-    # scale to [-1, 1]
-    sa = (a - 0.5) * 2
-    
+    # 
+
     return
