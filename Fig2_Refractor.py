@@ -38,9 +38,9 @@ def fig2_refractor (sa) :
     dmin, dmax, tmax = 0, 0, 0
 
     # this part in fig2 matlab is replaced by the parameter
-
+    input_array = np.array(sa)
     # Normalize sa into array a
-    a = sa/10 + 0.5
+    a = input_array/10 + 0.5
 
     #initialize ki and aa
     ki = []
@@ -103,6 +103,9 @@ def fig2_refractor (sa) :
     
     # loop over the range to run the simulation
     for k in range(n):
+        # Resets x and alfa for d variation
+        x = [0.5]
+        alfa=[0.6]
         # begin time assessment
         start_time = time.time()
 
@@ -111,20 +114,19 @@ def fig2_refractor (sa) :
 
         # Actual K-WTA Simulation
         for (i) in range(j):
-            
             # set s values
             # binary decision (Pass - Fail)
-            s = []
+            s = np.zeros(n)
             # We set the values of Pass or Fail 
             # based on normalized list <a> 
             # compared to given/calculated x
             for l in range(n):
                 # Pass
                 if (a[l] - x[i]) > 0:
-                    s.append(1)
+                    s[l]=1
                 # Fail
                 else:
-                    s.append(0)
+                    s[l]=0
             
             # Case
             # Dot product
@@ -157,6 +159,8 @@ def fig2_refractor (sa) :
                 d[i] = np.dot(a, s - s7[i,:])
                 s8[i, :] = s
             elif k==8:
+                # Resets the s array
+                s = np.ones(n)
                 d[i] = np.dot(a, s - s8[i,:])
                 s9[i, :] = s
 
