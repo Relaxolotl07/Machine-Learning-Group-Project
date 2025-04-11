@@ -23,11 +23,11 @@ sa4 = create_data(n, low, high) """
 
 print(f"Fixed Data: {sa} \n")
 fig2_refractor(sa)
-print(f"Random 1 Data: {sa1} \n")
+""" print(f"Random 1 Data: {sa1} \n")
 fig2_refractor(sa1)
 print(f"Random 2 Data: {sa2}\n")
 fig2_refractor(sa2)
 print(f"Random 3 Data: {sa3}\n")
 fig2_refractor(sa3)
 print(f"Random 4 Data: {sa4}\n")
-fig2_refractor(sa4)
+fig2_refractor(sa4)"""
