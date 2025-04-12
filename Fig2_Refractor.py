@@ -23,14 +23,11 @@ import time
 # takes an array and simulates a k-WTA networks with different ks
 # if you want a random array test then input it in the parameter when calling
 # sa is the array to test, is normalized within function
-def fig2_refractor (sa) :
+def fig2_refractor (sa, n=9, j=10) :
 
 
-    # Paramter Initialization
-    # Trajectories
-    n=9
-    # Iterations
-    j=10
+    # Paramter Initialization n
+    # Iterations j
 
     # dmin: tracks smallest value of k in d array
     # dmax: largest k values in d array
