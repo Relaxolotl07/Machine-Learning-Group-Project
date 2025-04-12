@@ -16,7 +16,7 @@ low  = -2.3205
 high = 4.3338
 # static variables for testing, feel free to randomize variables as they are normalized within fig2
 sa = np.array([-0.8805, 2.4457, -2.3205, -0.6008, 4.3338, 1.8333, -2.8744, 3.3924, 1.2878])
-n_1 = 9
+n_1 = 1500
 sa1 = np.random.uniform(-5, 5, n_1)
 print(sa1)
 """ sa1 = np. """
@@ -29,7 +29,7 @@ fig2_refractor(sa)
 """ print(f"Random 1 Data: {sa1} \n")
 fig2_refractor(sa1, n_1) """
 print(f"Random 2 Data: {sa2}\n")
-fig2_refractor(sa2)
+fig2_refractor(sa2, n_1, 50)
 """ print(f"Random 3 Data: {sa3}\n")
 fig2_refractor(sa3) """
 """ print(f"Random 4 Data: {sa4}\n")

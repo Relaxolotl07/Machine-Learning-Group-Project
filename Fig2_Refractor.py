@@ -25,7 +25,7 @@ import time
 # sa is the array to test, is normalized within function
 def fig2_refractor (sa, n=9, j=10) :
 
-
+    max_k = 8
     # Paramter Initialization n
     # Iterations j
 
@@ -65,7 +65,7 @@ def fig2_refractor (sa, n=9, j=10) :
     # set the label for the subplots
     labels = [f'a_{i+1}' for i in range(n)] # f is for shorthand formatting in python
     # Set each subplot with the plotstyle and label according to fig2
-    for i in range(n):
+    for i in range(max_k):
         ax1.plot(ki, aa[i, :], plot_styles[i], label=labels[i])
 
     # x and y limit for ax1
@@ -99,7 +99,7 @@ def fig2_refractor (sa, n=9, j=10) :
     s9 = np.zeros((j,n))
     
     # loop over the range to run the simulation
-    for k in range(n):
+    for k in range(max_k):
         # Resets x and alfa for d variation
         x = [0.5]
         alfa=[0.6]
