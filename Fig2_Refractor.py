@@ -23,14 +23,11 @@ import time
 # takes an array and simulates a k-WTA networks with different ks
 # if you want a random array test then input it in the parameter when calling
 # sa is the array to test, is normalized within function
-def fig2_refractor (sa) :
+def fig2_refractor (sa, n=9, j=10) :
 
-
-    # Paramter Initialization
-    # Trajectories
-    n=9
-    # Iterations
-    j=10
+    max_k = 8
+    # Paramter Initialization n
+    # Iterations j
 
     # dmin: tracks smallest value of k in d array
     # dmax: largest k values in d array
@@ -68,7 +65,7 @@ def fig2_refractor (sa) :
     # set the label for the subplots
     labels = [f'a_{i+1}' for i in range(n)] # f is for shorthand formatting in python
     # Set each subplot with the plotstyle and label according to fig2
-    for i in range(n):
+    for i in range(max_k):
         ax1.plot(ki, aa[i, :], plot_styles[i], label=labels[i])
 
     # x and y limit for ax1
@@ -102,7 +99,7 @@ def fig2_refractor (sa) :
     s9 = np.zeros((j,n))
     
     # loop over the range to run the simulation
-    for k in range(n):
+    for k in range(max_k):
         # Resets x and alfa for d variation
         x = [0.5]
         alfa=[0.6]
