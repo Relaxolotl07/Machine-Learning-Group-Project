@@ -1,4 +1,5 @@
 import numpy as np
+import random
 
 # The paper provided describes a neural network architechture focused around efficient parallel sorting.
 
@@ -7,10 +8,14 @@ import numpy as np
 
 # n = number of elements in the list
 # low & high = range of random integers
-def create_data(n, low=1, high=101):
+def create_data(n, difference = 3, variance_high=10):
     data = np.random.rand(n)
-    data = data * high
-    data = data + low
+    data = data + difference
+    data = data * variance_high
+    for i, value in enumerate(data):
+        if i >= 1:
+            data[i] = data[i-1] + data[i]
+    random.shuffle(data)
     return data
 
 
